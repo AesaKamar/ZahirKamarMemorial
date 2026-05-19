@@ -279,6 +279,18 @@
       min-width: 120px;
     }
 
+    .dropdown-group-title {
+      display: block;
+      font-size: 0.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #8c867d;
+      padding: 0.3rem 0.5rem 0.15rem 0.5rem;
+      background-color: #f5f3ed;
+      border-bottom: 1px solid #d4cdbf;
+    }
+
     .calendar-dropdown.show {
       display: block;
     }
@@ -444,9 +456,14 @@
             <button class="service-tag-btn" onclick="toggleCalendar('wake-cal')">
               📅 Tonight
             </button>
-            <div id="wake-cal" class="calendar-dropdown">
-              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wake+for+Sheik+Zahir+Kamar&dates=20260519T233000Z/20260520T013000Z&details=Wake+services+held+at+Masjid+Ar-Rahman+and+the+family+home.&location=231+Liberty+Rd,+Englewood,+NJ+07631" target="_blank">Google Calendar</a>
-              <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0AURL:https://aesakamar.github.io/ZahirKamarMemorial/%0ADTSTART:20260519T233000Z%0ADTEND:20260520T013000Z%0ASUMMARY:Wake for Sheik Zahir Kamar%0ADESCRIPTION:Wake services held at Masjid Ar-Rahman and the family home.%0ALOCATION:231 Liberty Rd, Englewood, NJ 07631%0AEND:VEVENT%0AEND:VCALENDAR" download="wake.ics">iCal / Outlook</a>
+            <div id="wake-cal" class="calendar-dropdown" style="min-width: 140px;">
+              <span class="dropdown-group-title">1. Masjid Wake</span>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wake+(Masjid)+-+Sheik+Zahir+Kamar&dates=20260519T233000Z/20260520T013000Z&details=Wake+held+at+Masjid+Ar-Rahman+in+Queens+Village.&location=Masjid+Ar-Rahman,+Queens+Village,+NY" target="_blank">Google Calendar</a>
+              <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0AURL:https://aesakamar.github.io/ZahirKamarMemorial/%0ADTSTART:20260519T233000Z%0ADTEND:20260520T013000Z%0ASUMMARY:Wake (Masjid) - Sheik Zahir Kamar%0ADESCRIPTION:Wake held at Masjid Ar-Rahman in Queens Village.%0ALOCATION:Masjid Ar-Rahman, Queens Village, NY%0AEND:VEVENT%0AEND:VCALENDAR" download="wake_masjid.ics">iCal / Outlook</a>
+              
+              <span class="dropdown-group-title">2. Home Wake</span>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wake+(Home)+-+Sheik+Zahir+Kamar&dates=20260519T233000Z/20260520T013000Z&details=Wake+held+at+the+Kamar+family+home.&location=231+Liberty+Rd,+Englewood,+NJ+07631" target="_blank">Google Calendar</a>
+              <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0AURL:https://aesakamar.github.io/ZahirKamarMemorial/%0ADTSTART:20260519T233000Z%0ADTEND:20260520T013000Z%0ASUMMARY:Wake (Home) - Sheik Zahir Kamar%0ADESCRIPTION:Wake held at the Kamar family home.%0ALOCATION:231 Liberty Rd, Englewood, NJ 07631%0AEND:VEVENT%0AEND:VCALENDAR" download="wake_home.ics">iCal / Outlook</a>
             </div>
           </div>
         </div>
