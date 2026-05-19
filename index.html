@@ -38,33 +38,32 @@
       color: #2c2a27;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       min-height: 100vh;
-      overflow: hidden;
     }
 
-    /* Card Wrapper: Absolute Zero Scroll Enforcement */
+    /* Card Wrapper: Elegant vertical flow with fallback scroll */
     .card-container {
       width: 100%;
       max-width: 390px;
-      height: 100vh;
-      max-height: 680px; /* Strict height limit for modern iPhones */
+      min-height: 100vh;
       background-color: #fdfcf7;
-      padding: 0.8rem 1rem 0.6rem 1rem;
+      padding: 1rem 1.2rem;
       border-left: 1px solid #eae6df;
       border-right: 1px solid #eae6df;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      overflow: hidden;
     }
 
     @media (min-width: 480px) {
       body {
+        align-items: center;
         background-color: #e2e1da;
+        padding: 2rem 0;
       }
       .card-container {
-        height: 660px;
+        min-height: auto;
         border-radius: 12px;
         border: 1px solid #eae6df;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
