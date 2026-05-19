@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>In Loving Memory of Sheik Zahir Kamar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base Styling */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f4f3ee;
+      color: #2c2a27;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Card Wrapper: Absolute Zero Scroll Enforcement */
+    .card-container {
+      width: 100%;
+      max-width: 390px;
+      height: 100vh;
+      max-height: 680px; /* Strict height limit for modern iPhones */
+      background-color: #fdfcf7;
+      padding: 0.8rem 1rem 0.6rem 1rem;
+      border-left: 1px solid #eae6df;
+      border-right: 1px solid #eae6df;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    @media (min-width: 480px) {
+      body {
+        background-color: #e2e1da;
+      }
+      .card-container {
+        height: 660px;
+        border-radius: 12px;
+        border: 1px solid #eae6df;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      }
+    }
+
+    /* Arabic Inscription */
+    .calligraphy {
+      text-align: center;
+      margin-bottom: 0.35rem;
+    }
+
+    .calligraphy-arabic {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: #a88d5e;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .calligraphy-translation {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.72rem;
+      color: #8c867d;
+      display: block;
+    }
+
+    /* Split Header Layout */
+    .header-row {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 0.35rem;
+    }
+
+    /* Portrait Image Frame (Bigger on Left) */
+    .photo-frame {
+      width: 105px;
+      height: 135px;
+      border-radius: 52.5px 52.5px 6px 6px;
+      overflow: hidden;
+      border: 1px solid #d4cdbf;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      flex-shrink: 0;
+      background: #eae6df;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Tribute Headings */
+    .tribute-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .tribute-intro {
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #a88d5e;
+      margin-bottom: 0.15rem;
+    }
+
+    .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.05;
+      color: #1e1d1b;
+      margin-bottom: 0.15rem;
+    }
+
+    .dates {
+      font-size: 0.75rem;
+      color: #6b6660;
+      font-weight: 500;
+      margin-bottom: 0.1rem;
+    }
+
+    .origin {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.8rem;
+      color: #8c867d;
+      line-height: 1.2;
+    }
+
+    /* Elegant Minimal Dividers */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0.35rem 0;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: "";
+      width: 40px;
+      height: 1px;
+      background-color: #d4cdbf;
+    }
+
+    .divider-symbol {
+      font-size: 0.45rem;
+      color: #a88d5e;
+      padding: 0 0.4rem;
+    }
+
+    /* Family Section */
+    .family-section {
+      text-align: center;
+      padding: 0 0.25rem;
+    }
+
+    .family-paragraph {
+      font-size: 0.72rem;
+      line-height: 1.35;
+      color: #4a4742;
+      text-align: center;
+    }
+
+    /* Compact Services List Layout */
+    .services-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .service-row {
+      background-color: #ffffff;
+      border: 1px solid #edebe4;
+      border-radius: 8px;
+      padding: 0.4rem 0.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.015);
+    }
+
+    .service-meta-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.15rem;
+    }
+
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #a88d5e;
+      text-transform: uppercase;
+    }
+
+    .service-tag {
+      font-size: 0.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      background-color: #f0ede6;
+      color: #8c867d;
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
+      letter-spacing: 0.5px;
+    }
+
+    .service-time {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #1e1d1b;
+      margin-bottom: 0.15rem;
+    }
+
+    .service-desc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .service-details {
+      font-size: 0.65rem;
+      color: #6b6660;
+      line-height: 1.25;
+      flex: 1;
+    }
+
+    .service-venue {
+      font-weight: 600;
+      color: #3a3834;
+    }
+
+    /* Mini maps links */
+    .mini-btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .mini-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fdfcf7;
+      color: #4a4742;
+      border: 1px solid #d4cdbf;
+      padding: 0.2rem 0.45rem;
+      font-size: 0.55rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .mini-btn:hover {
+      background-color: #a88d5e;
+      color: #ffffff;
+      border-color: #a88d5e;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding-top: 0.15rem;
+    }
+
+    .thank-you {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #8c867d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card-container">
+    
+    <!-- Islamic Calligraphy -->
+    <div class="calligraphy">
+      <span class="calligraphy-arabic">إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ</span>
+      <span class="calligraphy-translation">"Surely we belong to Allah and to Him we shall return."</span>
+    </div>
+
+    <!-- Split Header Row with Larger Photo -->
+    <div class="header-row">
+      <div class="photo-frame">
+        <img src="75685119-3f14-4562-8609-56f29bbf0e85.JPG" alt="Sheik Zahir Kamar">
+      </div>
+      <div class="tribute-info">
+        <span class="tribute-intro">The death is announced of</span>
+        <h1 class="name">Sheik Zahir Kamar</h1>
+        <p class="dates">Age 66 • Englewood, NJ</p>
+        <p class="origin">formerly of Vreed-en-Hoop, WCD</p>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider">
+      <span class="divider-symbol">✦</span>
+    </div>
+
+    <!-- Family Section: Dense Paragraph -->
+    <section class="family-section">
+      <p class="family-paragraph">
+        He was the son of Isha Kamar and the late Kamar Hadayatullah. Step-son of the late Asgar Ally.
+        Brother of Rafeia, Rasheeda, Munaaf, and the late Farida.
+        Husband of Nafeza Baksh-Kamar.
+        Father of Zaf, Aesa, and Nasr, children of Waheda.
+        Step-father of Saeef, Arif, Asif, and Aleya.
+        Father-in-law of Farrah and Shraddha.
+        Grandfather of Imana and Zayd.
+      </p>
+    </section>
+
+    <!-- Divider -->
+    <div class="divider">
+      <span class="divider-symbol">✦</span>
+    </div>
+
+    <!-- Services Details: Ultra Compact Premium Rows -->
+    <section class="services-section">
+
+      <!-- Wake Card -->
+      <div class="service-row">
+        <div class="service-meta-header">
+          <span class="service-title">Wakes</span>
+          <span class="service-tag">Tonight</span>
+        </div>
+        <p class="service-time">Tuesday, May 19 • 7:30 PM</p>
+        <div class="service-desc-row">
+          <div class="service-details">
+            <span class="service-venue">1. Masjid Ar-Rahman</span> (Queens Village, NY)<br>
+            <span class="service-venue">2. Family Residence</span> (231 Liberty Rd, Englewood)
+          </div>
+          <div class="mini-btn-group">
+            <a href="https://maps.google.com/?q=Masjid+Ar-Rahman+Queens+Village+NY" target="_blank" class="mini-btn">Masjid Map</a>
+            <a href="https://maps.google.com/?q=231+Liberty+Rd,+Englewood,+NJ+07631" target="_blank" class="mini-btn">Home Map</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Janazah Card -->
+      <div class="service-row">
+        <div class="service-meta-header">
+          <span class="service-title">Janazah Prayer</span>
+          <span class="service-tag">Tomorrow</span>
+        </div>
+        <p class="service-time">Wednesday, May 20 • 1:00 PM</p>
+        <div class="service-desc-row">
+          <div class="service-details">
+            <span class="service-venue">Dar-ul-Islah Masjid</span><br>
+            320 Fabry Terrace, Teaneck, NJ<br>
+            <span style="font-size: 0.6rem; font-style: italic; color: #a39e94;">Viewing begins at 12:00 PM</span>
+          </div>
+          <div class="mini-btn-group">
+            <a href="https://maps.google.com/?q=Dar-ul-Islah+320+Fabry+Terrace,+Teaneck,+NJ+07666" target="_blank" class="mini-btn">Google Map</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Burial Card -->
+      <div class="service-row">
+        <div class="service-meta-header">
+          <span class="service-title">Burial</span>
+          <span class="service-tag">Wednesday</span>
+        </div>
+        <p class="service-time">Following Janazah Prayer</p>
+        <div class="service-desc-row">
+          <div class="service-details">
+            <span class="service-venue">Restland Memorial Park</span><br>
+            77 Deforest Ave, East Hanover, NJ
+          </div>
+          <div class="mini-btn-group">
+            <a href="https://maps.google.com/?q=Restland+Memorial+Park+77+Deforest+Ave,+East+Hanover,+NJ+07936" target="_blank" class="mini-btn">Google Map</a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p class="thank-you">Thank you.</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
