@@ -237,15 +237,70 @@
       text-transform: uppercase;
     }
 
-    .service-tag {
-      font-size: 0.5rem;
+    .calendar-dropdown-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .service-tag-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.55rem;
       font-weight: 600;
       text-transform: uppercase;
-      background-color: #f0ede6;
+      background-color: #f5f3ed;
       color: #8c867d;
-      padding: 0.1rem 0.3rem;
-      border-radius: 3px;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
       letter-spacing: 0.5px;
+      border: 1px solid #d4cdbf;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      transition: all 0.15s ease;
+    }
+
+    .service-tag-btn:hover {
+      background-color: #a88d5e;
+      color: #ffffff;
+      border-color: #a88d5e;
+    }
+
+    .calendar-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 120%;
+      background-color: #ffffff;
+      border: 1px solid #d4cdbf;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      z-index: 10;
+      min-width: 120px;
+    }
+
+    .calendar-dropdown.show {
+      display: block;
+    }
+
+    .calendar-dropdown a {
+      display: block;
+      padding: 0.4rem 0.5rem;
+      font-size: 0.6rem;
+      color: #4a4742;
+      text-decoration: none;
+      text-align: left;
+      font-weight: 500;
+      border-bottom: 1px solid #f0ede6;
+    }
+
+    .calendar-dropdown a:last-child {
+      border-bottom: none;
+    }
+
+    .calendar-dropdown a:hover {
+      background-color: #fdfcf7;
+      color: #a88d5e;
     }
 
     .service-time {
@@ -378,26 +433,28 @@
 
     <!-- Divider -->
     <div class="divider">
-      <span class="divider-symbol">✦</span>
-    </div>
-
-    <!-- Services Details: Ultra Compact Premium Rows -->
+      <span c    <!-- Services Details: Ultra Compact Premium Rows -->
     <section class="services-section">
 
       <!-- Wake Card -->
       <div class="service-row">
         <div class="service-meta-header">
           <span class="service-title">Wakes</span>
-          <span class="service-tag">Tonight</span>
+          <div class="calendar-dropdown-container">
+            <button class="service-tag-btn" onclick="toggleCalendar('wake-cal')">
+              📅 Tonight
+            </button>
+            <div id="wake-cal" class="calendar-dropdown">
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wake+for+Sheik+Zahir+Kamar&dates=20260519T233000Z/20260520T013000Z&details=Wake+services+held+at+Masjid+Ar-Rahman+and+the+family+home.&location=231+Liberty+Rd,+Englewood,+NJ+07631" target="_blank">Google Calendar</a>
+              <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0AURL:https://aesakamar.github.io/ZahirKamarMemorial/%0ADTSTART:20260519T233000Z%0ADTEND:20260520T013000Z%0ASUMMARY:Wake for Sheik Zahir Kamar%0ADESCRIPTION:Wake services held at Masjid Ar-Rahman and the family home.%0ALOCATION:231 Liberty Rd, Englewood, NJ 07631%0AEND:VEVENT%0AEND:VCALENDAR" download="wake.ics">iCal / Outlook</a>
+            </div>
+          </div>
         </div>
         <p class="service-time">Tuesday, May 19 • 7:30 PM</p>
         <div class="service-desc-row">
           <div class="service-details">
             <span class="service-venue">1. Masjid Ar-Rahman</span> (Queens Village, NY)<br>
             <span class="service-venue">2. Family Residence</span> (231 Liberty Rd, Englewood)
-            <div class="calendar-actions">
-              Calendar: <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wake+for+Sheik+Zahir+Kamar&dates=20260519T233000Z/20260520T013000Z&details=Wake+services+held+at+Masjid+Ar-Rahman+and+the+family+home.&location=231+Liberty+Rd,+Englewood,+NJ+07631" target="_blank">Google</a> • <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0AURL:https://aesakamar.github.io/ZahirKamarMemorial/%0ADTSTART:20260519T233000Z%0ADTEND:20260520T013000Z%0ASUMMARY:Wake for Sheik Zahir Kamar%0ADESCRIPTION:Wake services held at Masjid Ar-Rahman and the family home.%0ALOCATION:231 Liberty Rd, Englewood, NJ 07631%0AEND:VEVENT%0AEND:VCALENDAR" download="wake.ics">iCal / Outlook</a>
-            </div>
           </div>
           <div class="mini-btn-group">
             <a href="https://maps.google.com/?q=Masjid+Ar-Rahman+Queens+Village+NY" target="_blank" class="mini-btn">Masjid Map</a>
@@ -410,7 +467,15 @@
       <div class="service-row">
         <div class="service-meta-header">
           <span class="service-title">Janazah Prayer</span>
-          <span class="service-tag">Tomorrow</span>
+          <div class="calendar-dropdown-container">
+            <button class="service-tag-btn" onclick="toggleCalendar('janazah-cal')">
+              📅 Tomorrow
+            </button>
+            <div id="janazah-cal" class="calendar-dropdown">
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Janazah+Prayer+-+Sheik+Zahir+Kamar&dates=20260520T170000Z/20260520T180000Z&details=Janazah+prayer+for+brother+Zahir+will+take+place+at+Dar-ul-Islah+Masjid.+Viewing+begins+at+12:00+PM.&location=320+Fabry+Terrace,+Teaneck,+NJ+07666" target="_blank">Google Calendar</a>
+              <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0AURL:https://aesakamar.github.io/ZahirKamarMemorial/%0ADTSTART:20260520T170000Z%0ADTEND:20260520T180000Z%0ASUMMARY:Janazah Prayer - Sheik Zahir Kamar%0ADESCRIPTION:Janazah prayer for brother Zahir will take place at Dar-ul-Islah Masjid. Viewing begins at 12:00 PM.%0ALOCATION:320 Valley Terrace, Teaneck, NJ 07666%0AEND:VEVENT%0AEND:VCALENDAR" download="janazah.ics">iCal / Outlook</a>
+            </div>
+          </div>
         </div>
         <p class="service-time">Wednesday, May 20 • 1:00 PM</p>
         <div class="service-desc-row">
@@ -418,9 +483,6 @@
             <span class="service-venue">Dar-ul-Islah Masjid</span><br>
             320 Fabry Terrace, Teaneck, NJ<br>
             <span style="font-size: 0.6rem; font-style: italic; color: #a39e94;">Viewing begins at 12:00 PM</span>
-            <div class="calendar-actions">
-              Calendar: <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Janazah+Prayer+-+Sheik+Zahir+Kamar&dates=20260520T170000Z/20260520T180000Z&details=Janazah+prayer+for+brother+Zahir+will+take+place+at+Dar-ul-Islah+Masjid.+Viewing+begins+at+12:00+PM.&location=320+Fabry+Terrace,+Teaneck,+NJ+07666" target="_blank">Google</a> • <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0AURL:https://aesakamar.github.io/ZahirKamarMemorial/%0ADTSTART:20260520T170000Z%0ADTEND:20260520T180000Z%0ASUMMARY:Janazah Prayer - Sheik Zahir Kamar%0ADESCRIPTION:Janazah prayer for brother Zahir will take place at Dar-ul-Islah Masjid. Viewing begins at 12:00 PM.%0ALOCATION:320 Fabry Terrace, Teaneck, NJ 07666%0AEND:VEVENT%0AEND:VCALENDAR" download="janazah.ics">iCal / Outlook</a>
-            </div>
           </div>
           <div class="mini-btn-group">
             <a href="https://maps.google.com/?q=Dar-ul-Islah+320+Fabry+Terrace,+Teaneck,+NJ+07666" target="_blank" class="mini-btn">Google Map</a>
@@ -432,16 +494,21 @@
       <div class="service-row">
         <div class="service-meta-header">
           <span class="service-title">Burial</span>
-          <span class="service-tag">Wednesday</span>
+          <div class="calendar-dropdown-container">
+            <button class="service-tag-btn" onclick="toggleCalendar('burial-cal')">
+              📅 Wednesday
+            </button>
+            <div id="burial-cal" class="calendar-dropdown">
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Burial+-+Sheik+Zahir+Kamar&dates=20260520T180000Z/20260520T190000Z&details=Burial+will+follow+at+Restland+Memorial+Park+after+the+Janazah+prayer.&location=77+Deforest+Ave,+East+Hanover,+NJ+07936" target="_blank">Google Calendar</a>
+              <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0AURL:https://aesakamar.github.io/ZahirKamarMemorial/%0ADTSTART:20260520T180000Z%0ADTEND:20260520T190000Z%0ASUMMARY:Burial - Sheik Zahir Kamar%0ADESCRIPTION:Burial will follow at Restland Memorial Park after the Janazah prayer.%0ALOCATION:77 Deforest Ave, East Hanover, NJ 07936%0AEND:VEVENT%0AEND:VCALENDAR" download="burial.ics">iCal / Outlook</a>
+            </div>
+          </div>
         </div>
         <p class="service-time">Following Janazah Prayer</p>
         <div class="service-desc-row">
           <div class="service-details">
             <span class="service-venue">Restland Memorial Park</span><br>
             77 Deforest Ave, East Hanover, NJ
-            <div class="calendar-actions">
-              Calendar: <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Burial+-+Sheik+Zahir+Kamar&dates=20260520T180000Z/20260520T190000Z&details=Burial+will+follow+at+Restland+Memorial+Park+after+the+Janazah+prayer.&location=77+Deforest+Ave,+East+Hanover,+NJ+07936" target="_blank">Google</a> • <a href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0AURL:https://aesakamar.github.io/ZahirKamarMemorial/%0ADTSTART:20260520T180000Z%0ADTEND:20260520T190000Z%0ASUMMARY:Burial - Sheik Zahir Kamar%0ADESCRIPTION:Burial will follow at Restland Memorial Park after the Janazah prayer.%0ALOCATION:77 Deforest Ave, East Hanover, NJ 07936%0AEND:VEVENT%0AEND:VCALENDAR" download="burial.ics">iCal / Outlook</a>
-            </div>
           </div>
           <div class="mini-btn-group">
             <a href="https://maps.google.com/?q=Restland+Memorial+Park+77+Deforest+Ave,+East+Hanover,+NJ+07936" target="_blank" class="mini-btn">Google Map</a>
@@ -458,5 +525,36 @@
 
   </div>
 
+  <!-- Interactive Dropdown Script -->
+  <script>
+    function toggleCalendar(id) {
+      // Close all other dropdowns
+      var dropdowns = document.getElementsByClassName("calendar-dropdown");
+      for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.id !== id && openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+      // Toggle current dropdown
+      var target = document.getElementById(id);
+      if (target) {
+        target.classList.toggle("show");
+      }
+    }
+
+    // Close dropdowns if the user clicks outside
+    window.onclick = function(event) {
+      if (!event.target.matches('.service-tag-btn')) {
+        var dropdowns = document.getElementsByClassName("calendar-dropdown");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+  </script>
 </body>
 </html>
